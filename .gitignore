@@ -1,0 +1,12 @@
+# Sanal Ortam
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Buyuk Dosyalar
+data/*.csv
+models/*.joblib
+
+# Jupyter
+.ipynb_checkpoints/
