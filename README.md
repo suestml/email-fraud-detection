@@ -25,8 +25,9 @@ Uygulama; girilen e-posta metnini gerçek zamanlı analiz ederek dolandırıcıl
 
 ## 📁 Proje Yapısı
 
+```text
 ├── assets/             # Web arayüzü ekran görüntüleri ve demo görselleri
-├── data/               # Ham veri seti ü
+├── data/               # Ham veri seti (Git'e eklenmez / .gitignore)
 ├── models/             # Eğitilmiş model, TF-IDF vektörleştirici ve scaler bileşenleri (.joblib)
 ├── notebooks/          # Keşifçi veri analizi (EDA) ve hata analizi (01_baseline_model.ipynb)
 ├── src/                # Üretime hazır modüler kodlar
@@ -38,3 +39,4 @@ Uygulama; girilen e-posta metnini gerçek zamanlı analiz ederek dolandırıcıl
 ├── .gitignore          # Depoya dahil edilmeyecek ortam ve veri kuralları
 ├── README.md           # Proje dokümantasyonu, mimari detaylar ve kullanım kılavuzu
 └── requirements.txt    # Projenin çalışması için gereken Python bağımlılıkları
+```
