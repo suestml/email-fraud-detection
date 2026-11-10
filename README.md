@@ -10,16 +10,31 @@ Bu proje, e-posta metinleri ve biçimsel meta-özellikler üzerinden oltalama (p
 * **Özellik Mühendisliği (Feature Engineering):** Metin tabanlı TF-IDF vektörlerine ek olarak; URL sayısı, IP adresi varlığı, büyük harf oranı, aciliyet bildiren semboller (`!`, `$`) ve karakter uzunluğu gibi 7 adet yapısal özellik çıkarılmıştır.
 * **Sonuç:** Yapısal özelliklerin entegrasyonuyla test setindeki toplam hata sayısı 46'dan 39'a düşürülmüş (FP: 21, FN: 18), modelin dil manipülasyonlarına karşı gürbüzlüğü artırılmıştır.
 
+## 🖥️ Streamlit Web Arayüzü & Canlı Demo
+
+Uygulama; girilen e-posta metnini gerçek zamanlı analiz ederek dolandırıcılık riskini, güven skorunu ve metne ait yapısal meta-özellikleri görselleştirir.
+
+<p align="center">
+  <img src="assets/demo_fraud.png" width="49%" alt="Phishing Tespiti" />
+  <img src="assets/demo_safe.png" width="49%" alt="Güvenli E-posta Tespiti" />
+</p>
+
+* **Sol:** Şüpheli bağlantı ve aciliyet barındıran oltalama (phishing) e-postası tespiti.
+* **Sağ:** Rutin iş akışı içeriğine sahip güvenli e-posta sınıflandırması.
+</p>
+
 ## 📁 Proje Yapısı
 
-```text
-├── data/               # Ham veri seti (Git'e eklenmez)
-├── models/             # Eğitilmiş modeller ve scaler/vectorizer bileşenleri
-├── notebooks/          # Keşifçi veri analizi ve hata analizi (01_baseline_model.ipynb)
+├── assets/             # Web arayüzü ekran görüntüleri ve demo görselleri
+├── data/               # Ham veri seti ü
+├── models/             # Eğitilmiş model, TF-IDF vektörleştirici ve scaler bileşenleri (.joblib)
+├── notebooks/          # Keşifçi veri analizi (EDA) ve hata analizi (01_baseline_model.ipynb)
 ├── src/                # Üretime hazır modüler kodlar
-│   ├── preprocess.py   # Meta-özellik çıkarım fonksiyonları
-│   ├── train.py        # Pipeline eğitimi ve model serileştirme (joblib)
-│   └── predict.py      # Canlı tahmin sınıfı (Inference engine)
-├── .gitignore
-├── README.md
-└── requirements.txt
+│   ├── __init__.py     # Modül tanımlayıcı
+│   ├── preprocess.py   # Meta-özellik çıkarımı ve metin ön işleme fonksiyonları
+│   ├── train.py        # Model eğitimi, metrik değerlendirmesi ve serileştirme
+│   └── predict.py      # Canlı tahmin sınıfı (FraudPredictor inference engine)
+├── app.py              # Streamlit tabanlı etkileşimli web uygulaması
+├── .gitignore          # Depoya dahil edilmeyecek ortam ve veri kuralları
+├── README.md           # Proje dokümantasyonu, mimari detaylar ve kullanım kılavuzu
+└── requirements.txt    # Projenin çalışması için gereken Python bağımlılıkları

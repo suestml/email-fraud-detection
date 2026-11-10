@@ -10,3 +10,8 @@ models/*.joblib
 
 # Jupyter
 .ipynb_checkpoints/
+
+.venv/
+*.pyc
+__pycache__/
+data/emails_real.csv

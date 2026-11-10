@@ -84,5 +84,6 @@ def train_pipeline(data_path: str, models_dir: str = "../models"):
     print(f"Model ve dönüştürücüler başarıyla '{models_dir}/' klasörüne kaydedildi.")
 
 if __name__ == "__main__":
-    DATA_PATH = '../data/emails_real.csv'
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    DATA_PATH = os.path.join(BASE_DIR, "data", "emails_real.csv")
     train_pipeline(DATA_PATH)
